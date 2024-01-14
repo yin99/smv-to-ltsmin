@@ -309,11 +309,13 @@ int smv_get_label(void* model, int g, state_t* in){
 		case 3: return (in->srt_running == TRUE) !=0;
 		case 4: return !((in->virtual_init == TRUE)||(in->sim_running == TRUE)||(in->sm_running == TRUE)||(in->srt_running == TRUE));
 		case 5: return (in->sim_val<=in->buffer1);
+		case 6: return (in->sim_val<=in->buffer2);
+		case 7: return (in->sim_val<=in->buffer3);
 	}
 }
 
 int smv_get_label_count() {
-	return 6;
+	return 8;
 }
 
 int *read_m[5] = {
@@ -332,13 +334,15 @@ int *write_m[5] = {
 	((int[]){3,6,8,14})
 };
 
-int *label_m[6] = {
+int *label_m[8] = {
 	((int[]){1,18}),
 	((int[]){1,6}),
 	((int[]){1,8}),
 	((int[]){1,14}),
 	((int[]){4,6,8,14,18}),
-	((int[]){2,0,5})
+	((int[]){2,0,5}),
+	((int[]){2,1,5}),
+	((int[]){2,2,5})
 };
 
 int state_label_many(void* model, int * src, int * label, int guards_only) {
@@ -424,7 +428,11 @@ void pins_model_init(model_t m) {
 	lts_type_set_state_label_typeno (ltstype, 4, bool_type);
 	lts_type_set_state_label_name (ltstype, 4, "choose_running");
 	lts_type_set_state_label_typeno (ltstype, 5, bool_type);
-	lts_type_set_state_label_name (ltstype, 5, "goal");
+	lts_type_set_state_label_name (ltstype, 5, "valbuf1");
+		lts_type_set_state_label_typeno (ltstype, 6, bool_type);
+	lts_type_set_state_label_name (ltstype, 6, "valbuf2");
+		lts_type_set_state_label_typeno (ltstype, 7, bool_type);
+	lts_type_set_state_label_name (ltstype, 7, "valbuf3");
 	lts_type_validate(ltstype);
 	GBsetLTStype(m, ltstype);
 	pins_chunk_put(m, action_type, chunk_str("init"));
