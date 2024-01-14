@@ -1,3 +1,1 @@
--- pold1
-LTLSPEC
 []((bufsize==3)->(<>(((valbuf1)&&(valbuf1))&&(valbuf1))))
