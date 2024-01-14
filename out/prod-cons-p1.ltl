@@ -1,2 +1,2 @@
-([] ((<> (sm_running == 1)) && (<> (srt_running == 1)))) -> ([]((bufsize==1)->(<> (sim_val <= buffer1))))
+([] ((<> (sm_running == 1)) && (<> (srt_running == 1)))) -> ([]((bufsize==1)->(<> goal)))
 
