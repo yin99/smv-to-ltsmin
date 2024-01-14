@@ -1,1 +1,1 @@
-[]((sort_req == 1)->(<>(sort_OK == 1)))
+([] (<> (sm_running == 1)) && (<> (srt_running == 1))) -> ([]((sort_req == 1)->(<>(sort_OK == 1))))
