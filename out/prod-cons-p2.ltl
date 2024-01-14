@@ -1,0 +1,3 @@
+-- pold4
+LTLSPEC
+G((sort_req)->(F(sort_OK)))
