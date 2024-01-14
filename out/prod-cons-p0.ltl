@@ -1,3 +1,3 @@
 -- pold1
 LTLSPEC
-G((bufsize=3)->(F(((sim.val<=buffer[1])&(sim.val<=buffer[2]))&(sim.val<=buffer[3]))))
+[]((bufsize==3)->(<>(((sim_val<=buffer1)&&(sim_val<=buffer2))&&(sim_val<=buffer3))))
