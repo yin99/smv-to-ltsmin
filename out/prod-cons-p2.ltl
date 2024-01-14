@@ -1,3 +1,1 @@
--- pold4
-LTLSPEC
-G((sort_req)->(F(sort_OK)))
+[]((sort_req == 1)->(<>(sort_OK == 1)))
