@@ -346,8 +346,8 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		IN0098 = in->bc56_working;
 		IN0112 = in->eirich_mf34;
 		IN0113 = in->eirich_ms34;
-		IN0148 = (in->bc57_working || (fail0148h / 2)) && !(fail0148l % 2);
-		IN0149 = (in->bc57_working || (in->fail0149hl / 2)) && !(fail0149l % 2);
+		IN0148 = (in->bc57_working || (in->fail0148hl / 2)) && !(in->fail0148hl % 2);
+		IN0149 = (in->bc57_working || (in->fail0149hl / 2)) && !(in->fail0149hl % 2);
 		IN0054 = wghhop_full;
 		IN0107 = in->flare_flame;
 		IN0103 = in->wghgat_z;
@@ -564,8 +564,8 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		IN0098 = in->bc56_working;
 		IN0112 = in->eirich_mf34;
 		IN0113 = in->eirich_ms34;
-		IN0148 = (in->bc57_working || (fail0148h / 2)) && !(fail0148l % 2);
-		IN0149 = (in->bc57_working || (in->fail0149hl / 2)) && !(fail0149l % 2);
+		IN0148 = (in->bc57_working || (in->fail0148hl / 2)) && !(in->fail0148hl % 2);
+		IN0149 = (in->bc57_working || (in->fail0149hl / 2)) && !(in->fail0149hl % 2);
 		IN0054 = wghhop_full;
 		IN0107 = in->flare_flame;
 		IN0103 = in->wghgat_z;
@@ -620,7 +620,7 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		cpy[((int *)&out->log1_CR0309 - (int *)out)] = 0;
 		out->log1_CR0101 =  ( (in->step == 1) ? in->log1_p : in->log1_CR0101 ) ;
 		cpy[((int *)&out->log1_CR0101 - (int *)out)] = 0;
-		out->log1_change =  ( !(in->log1_CR0307 == ) ? 1 :  ( !(in->log1_CR0308 == ) ? 1 :  ( !(in->log1_CR0299 == ) ? 1 :  ( !(in->log1_CR0075 == ) ? 1 :  ( !(in->log1_CR0048 == ) ? 1 :  ( !(in->log1_CR0261 == ) ? 1 :  ( !(in->log1_CR0270 == ) ? 1 :  ( !(in->log1_CR0069 == ) ? 1 :  ( !(in->log1_TS0272l == ) ? 1 :  ( !(in->log1_CR0085 == ) ? 1 :  ( !(in->log1_TS0274l == ) ? 1 :  ( !(in->log1_CR0089 == ) ? 1 :  ( !(in->log1_CR0082 == ) ? 1 :  ( !(in->log1_TT0300l == ) ? 1 :  ( !(in->log1_CR0309 == ) ? 1 :  ( !(in->log1_CR0101 == ) ? 1 :  ( (in->step<4) ? in->log1_change : 0 )  )  )  )  )  )  )  )  )  )  )  )  )  )  )  )  ) ;
+		out->log1_change =  ( !(in->log1_CR0307 == out->log1_CR0307) ? 1 :  ( !(in->log1_CR0308 == out->log1_CR0308) ? 1 :  ( !(in->log1_CR0299 == out->log1_CR0299) ? 1 :  ( !(in->log1_CR0075 == out->log1_CR0075) ? 1 :  ( !(in->log1_CR0048 == out->log1_CR0048) ? 1 :  ( !(in->log1_CR0261 == out->log1_CR0261) ? 1 :  ( !(in->log1_CR0270 == out->log1_CR0270) ? 1 :  ( !(in->log1_CR0069 == out->log1_CR0069) ? 1 :  ( !(in->log1_TS0272l == out->log1_TS0272l) ? 1 :  ( !(in->log1_CR0085 == out->log1_CR0085) ? 1 :  ( !(in->log1_TS0274l == out->log1_TS0274l) ? 1 :  ( !(in->log1_CR0089 == out->log1_CR0089) ? 1 :  ( !(in->log1_CR0082 == out->log1_CR0082) ? 1 :  ( !(in->log1_TT0300l == out->log1_TT0300l) ? 1 :  ( !(in->log1_CR0309 == out->log1_CR0309) ? 1 :  ( !(in->log1_CR0101 == out->log1_CR0101) ? 1 :  ( (in->step<4) ? in->log1_change : 0 )  )  )  )  )  )  )  )  )  )  )  )  )  )  )  )  ) ;
 		cpy[((int *)&out->log1_change - (int *)out)] = 0;
 		out->log2_CR0065 =  ( (in->step == 2) ? in->log2_q : in->log2_CR0065 ) ;
 		cpy[((int *)&out->log2_CR0065 - (int *)out)] = 0;
@@ -642,13 +642,13 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		cpy[((int *)&out->log2_CR0080 - (int *)out)] = 0;
 		out->log2_CR0278 =  ( (in->step == 2) ? in->log2_ac : in->log2_CR0278 ) ;
 		cpy[((int *)&out->log2_CR0278 - (int *)out)] = 0;
-		out->log2_change =  ( !(in->log2_CR0065 == ) ? 1 :  ( !(in->log2_CR0106 == ) ? 1 :  ( !(in->log2_TT0276l == ) ? 1 :  ( !(in->log2_TS0297l == ) ? 1 :  ( !(in->log2_TT0262l == ) ? 1 :  ( !(in->log2_TS0271l == ) ? 1 :  ( !(in->log2_CR0077 == ) ? 1 :  ( !(in->log2_CR0081 == ) ? 1 :  ( !(in->log2_CR0080 == ) ? 1 :  ( !(in->log2_CR0278 == ) ? 1 :  ( (in->step<4) ? in->log2_change : 0 )  )  )  )  )  )  )  )  )  )  ) ;
+		out->log2_change =  ( !(in->log2_CR0065 == out->log2_CR0065) ? 1 :  ( !(in->log2_CR0106 == out->log2_CR0106) ? 1 :  ( !(in->log2_TT0276l == out->log2_TT0276l) ? 1 :  ( !(in->log2_TS0297l == out->log2_TS0297l) ? 1 :  ( !(in->log2_TT0262l == out->log2_TT0262l) ? 1 :  ( !(in->log2_TS0271l == out->log2_TS0271l) ? 1 :  ( !(in->log2_CR0077 == out->log2_CR0077) ? 1 :  ( !(in->log2_CR0081 == out->log2_CR0081) ? 1 :  ( !(in->log2_CR0080 == out->log2_CR0080) ? 1 :  ( !(in->log2_CR0278 == out->log2_CR0278) ? 1 :  ( (in->step<4) ? in->log2_change : 0 )  )  )  )  )  )  )  )  )  )  ) ;
 		cpy[((int *)&out->log2_change - (int *)out)] = 0;
 		out->log3_CR0287 =  ( (in->step == 3) ? (TT0276 || in->log3_CR0287) && in->log1_CR0299 : in->log3_CR0287 ) ;
 		cpy[((int *)&out->log3_CR0287 - (int *)out)] = 0;
 		out->log3_CR0285 =  ( (in->step == 3) ? IN0112 && IN0116 && IN0122 : in->log3_CR0285 ) ;
 		cpy[((int *)&out->log3_CR0285 - (int *)out)] = 0;
-		out->log3_change =  ( !(in->log3_CR0287 == ) ? 1 :  ( !(in->log3_CR0285 == ) ? 1 :  ( (in->step<4) ? in->log3_change : 0 )  )  ) ;
+		out->log3_change =  ( !(in->log3_CR0287 == out->log3_CR0287) ? 1 :  ( !(in->log3_CR0285 == out->log3_CR0285) ? 1 :  ( (in->step<4) ? in->log3_change : 0 )  )  ) ;
 		cpy[((int *)&out->log3_change - (int *)out)] = 0;
 		out->ti0276_t =  ( !in->log2_TT0276l ? 0 :  ( (in->step>0) ? in->ti0276_t : in->log2_TT0276l )  ) ;
 		cpy[((int *)&out->ti0276_t - (int *)out)] = 0;
