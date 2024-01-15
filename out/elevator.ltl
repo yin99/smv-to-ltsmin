@@ -1,0 +1,3 @@
+([] (<> !(elevator_buttonOpenDoor_pressed == 1 && (door_status==11)) && <> !(elevator_buttonOpenDoor_pressed == 1 && (elevator_moving==1)))) -> ([] ((Floor1btn_requestButton_pressed==1 -> <>((elevator_moving==0 && (door_status==11) && elevator_position == 0))) 
+&& (Floor2btn_requestButton_pressed==1  -> <>((elevator_moving==0 && (door_status==11) && elevator_position == 2))) 
+&& (Floor3btn_requestButton_pressed==1  -> <>((elevator_moving==0 && (door_status==11) && elevator_position == 4)))))
