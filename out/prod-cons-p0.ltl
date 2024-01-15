@@ -1,1 +1,1 @@
-[]((bufsize==3)->(<>(((valbuf1)&&(valbuf1))&&(valbuf1))))
+([] ((<> (sm_running == 1)) && (<> (srt_running == 1)))) -> []((bufsize==3)->(<>(((valbuf1)&&(valbuf2))&&(valbuf3))))
