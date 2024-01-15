@@ -19,7 +19,7 @@ typedef enum boolean{
 }boolean;
 
 const int smv_get_state_size() {
-	return 49;
+	return 51;
 }
 
 typedef struct state_t {
@@ -71,6 +71,8 @@ typedef struct state_t {
 	boolean IGNORE_LTL_1;
 	boolean AIGER_VALID;
 	boolean AIGER_INITIALIZED;
+	boolean VA296;
+	boolean VA298;
 	boolean virtual_init;
 } state_t;
 
@@ -123,6 +125,8 @@ state_t initial_s = (state_t) {
 	.IGNORE_LTL_1                           = FALSE,
 	.AIGER_VALID                            = FALSE,
 	.AIGER_INITIALIZED                      = FALSE,
+	.VA296                                  = FALSE,
+	.VA298                                  = FALSE,
 	.virtual_init                           = TRUE
 };
 
@@ -175,6 +179,8 @@ smv_basic_var basic_var_list[] = {
 	{"IGNORE_LTL_1",1,0x0},
 	{"AIGER_VALID",1,0x0},
 	{"AIGER_INITIALIZED",1,0x0},
+	{"VA296",1,0x0},
+	{"VA298",1,0x0},
 	{"virtual_init",1,0x0},
 };
 
@@ -227,7 +233,7 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 	transition_info_t transition_info = { transition_labels, t };
 	state_t local_state;
 	state_t* out = &local_state;
-	int cpy[49] = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,};
+	int cpy[51] = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,};
 	switch(t) {
 	case 0: {
 		memcpy(out, in, sizeof(state_t));
@@ -503,6 +509,10 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		cpy[((int *)&out->AIGER_VALID - (int *)out)] = 0;
 		out->AIGER_INITIALIZED = FALSE;
 		cpy[((int *)&out->AIGER_INITIALIZED - (int *)out)] = 0;
+		out->VA296 = FALSE;
+		cpy[((int *)&out->VA296 - (int *)out)] = 0;
+		out->VA298 = FALSE;
+		cpy[((int *)&out->VA298 - (int *)out)] = 0;
 		out->virtual_init = FALSE;
 		cpy[((int *)&out->virtual_init - (int *)out)] = 0;
 		out->AIGER_NEXT_e10_Request = smv_non_deterministic("AIGER_NEXT_e10_Request",2,FALSE,TRUE);
@@ -809,6 +819,10 @@ int smv_get_actions (void* model, int t, state_t *in, void (*callback)(void* arg
 		cpy[((int *)&out->AIGER_VALID - (int *)out)] = 0;
 		out->AIGER_INITIALIZED = TRUE;
 		cpy[((int *)&out->AIGER_INITIALIZED - (int *)out)] = 0;
+		out->VA296 = a296;
+		cpy[((int *)&out->VA296 - (int *)out)] = 0;
+		out->VA298 = a298;
+		cpy[((int *)&out->VA298 - (int *)out)] = 0;
 		out->AIGER_NEXT_e10_Request = smv_non_deterministic("AIGER_NEXT_e10_Request",2,FALSE,TRUE);
 		cpy[((int *)&out->AIGER_NEXT_e10_Request - (int *)out)] = 0;
 		out->AIGER_NEXT_e9_Request = smv_non_deterministic("AIGER_NEXT_e9_Request",2,FALSE,TRUE);
@@ -878,13 +892,13 @@ int *read_m[2] = {
 };
 
 int *write_m[2] = {
-	((int[]){49,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,0,1,2,3,4,5,6,7,8,9,10,11,12}),
-	((int[]){48,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,0,1,2,3,4,5,6,7,8,9,10,11,12})
+	((int[]){51,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,0,1,2,3,4,5,6,7,8,9,10,11,12}),
+	((int[]){50,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,0,1,2,3,4,5,6,7,8,9,10,11,12})
 };
 
 int *label_m[2] = {
-	((int[]){1,48}),
-	((int[]){1,48})
+	((int[]){1,50}),
+	((int[]){1,50})
 };
 
 int state_label_many(void* model, int * src, int * label, int guards_only) {
@@ -1005,8 +1019,12 @@ void pins_model_init(model_t m) {
 	lts_type_set_state_typeno(ltstype, 46,int_type);
 	lts_type_set_state_name(ltstype, 47,"AIGER_INITIALIZED");
 	lts_type_set_state_typeno(ltstype, 47,int_type);
-	lts_type_set_state_name(ltstype, 48,"virtual_init");
+	lts_type_set_state_name(ltstype, 48,"VA296");
 	lts_type_set_state_typeno(ltstype, 48,int_type);
+	lts_type_set_state_name(ltstype, 49,"VA298");
+	lts_type_set_state_typeno(ltstype, 49,int_type);
+	lts_type_set_state_name(ltstype, 50,"virtual_init");
+	lts_type_set_state_typeno(ltstype, 50,int_type);
 
 	// add an action type for edge labels
 	int action_type = lts_type_add_type(ltstype, "action", NULL);
@@ -1027,7 +1045,7 @@ void pins_model_init(model_t m) {
 	GBsetLTStype(m, ltstype);
 	pins_chunk_put(m, action_type, chunk_str("init"));
 	pins_chunk_put(m, action_type, chunk_str("next"));
-	int state[49];
+	int state[51];
 	smv_get_initial_state(state);
 	GBsetInitialState(m,state);
 	GBsetNextStateLong(m, (next_method_grey_t) smv_next_state);
